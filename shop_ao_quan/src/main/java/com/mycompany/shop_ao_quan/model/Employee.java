@@ -15,6 +15,13 @@ public class Employee {
         this.name = name;
         this.role = role;
     }
+    // dung de luu xuong db
+    public Employee( String username, String password, String name, String role) {
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.role = role;
+    }
     public int getEmployeeId() {
         return employeeId;
     }

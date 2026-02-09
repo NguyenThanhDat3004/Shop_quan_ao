@@ -6,8 +6,19 @@ import java.sql.ResultSet;
 import com.mycompany.shop_ao_quan.model.*;
 public class EmployeeDAOImpl implements ShopInterface<Employee> {
     @Override
-    public void save(Employee entity) {
-        // Implementation here
+    public void save(Employee entity) throws Exception {
+        String sql = """
+        INSERT INTO employee (username, password, name, role)
+        VALUES (?, ?, ?, ?)
+        """;
+    try (Connection conn = DBConnect.getConnection();
+         PreparedStatement ps = conn.prepareStatement(sql)) {
+        ps.setString(1, entity.getUsername());
+        ps.setString(2, entity.getPassword());
+        ps.setString(3, entity.getName());
+        ps.setString(4, entity.getRole());
+        ps.executeUpdate();
+    }
     }
     @Override
     public Employee update(Employee entity) {

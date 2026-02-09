@@ -4,13 +4,18 @@ import com.mycompany.shop_ao_quan.model.Employee;
 
 public class LoginService {
     // check thong tin dang nhap
-    public boolean authenticate(String username, String password) throws Exception {
+    EmployeeDAOImpl employeeDAO = new EmployeeDAOImpl();
+    public Employee authenticate(String username, String password) throws Exception {
         // Thong tin dang nhap mac dinh
-        EmployeeDAOImpl employeeDAO = new EmployeeDAOImpl();
             Employee e = employeeDAO.findByUsername(username);
             if (e != null && e.getPassword().equals(password)) {
-                return true;
+                return e;
             }
-        return false;
+        return null;
+    }
+    // dang ki
+    public void register(String username, String password, String name, String role) throws Exception {
+        Employee newEmployee = new Employee(username, password, name, role);
+        employeeDAO.save(newEmployee);
     }
 }

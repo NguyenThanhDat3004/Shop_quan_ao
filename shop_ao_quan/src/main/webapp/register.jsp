@@ -22,10 +22,9 @@
         <option value="STAFF">Nhân viên</option>
         <option value="ADMIN">Quản lý</option></select
       ><br /><br />
-
+      <input type="hidden" name="command" value="register" />
       <button type="submit">Đăng ký</button>
     </form>
-
     <br />
     <a href="login.jsp">Quay lại đăng nhập</a>
   </body>

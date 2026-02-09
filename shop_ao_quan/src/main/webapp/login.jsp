@@ -31,8 +31,9 @@
 
         <label>Password</label>
         <input type="password" name="password" required>
-
+        <input type="hidden" name="command" value="login" />
         <button type="submit">Login</button>
+        
     </form>
 
     <p style="text-align:center; margin-top:16px;">

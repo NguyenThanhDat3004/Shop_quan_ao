@@ -1,7 +1,6 @@
 package com.mycompany.shop_ao_quan.model;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Payment {
     private int paymentId;
