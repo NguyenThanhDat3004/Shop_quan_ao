@@ -1,0 +1,87 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : Feb 10, 2026, 3:07:47 AM
+    Author     : nguye
+*/
+
+/* reset */
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  background: url("../image/bg-register.jpg") center / cover no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* khung register */
+.register-box {
+  width: 420px;
+  padding: 32px;
+
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  color: #ffffff;
+}
+
+/* tiêu đề */
+.register-box h2 {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* label */
+.register-box label {
+  font-weight: 500;
+}
+
+/* input + select */
+.register-box input,
+.register-box select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  margin-bottom: 16px;
+
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
+
+/* button */
+.register-box button {
+  width: 100%;
+  padding: 12px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #00c853, #64dd17);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* link */
+.register-box a {
+  display: block;
+  text-align: center;
+  margin-top: 16px;
+  color: #c8e6c9;
+  text-decoration: none;
+}
