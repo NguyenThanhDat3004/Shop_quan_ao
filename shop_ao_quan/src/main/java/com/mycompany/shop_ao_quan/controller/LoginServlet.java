@@ -46,19 +46,25 @@ public class LoginServlet extends HttpServlet {
     private void handleLogin(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String url="";
         try {
             Employee employee = loginService.authenticate(username, password);
             if (employee != null) {
                 session.setAttribute("employeeId", employee.getEmployeeId());
                 request.setAttribute("success", "Login successful!");
+                response.sendRedirect("HomeServlet");
             } else {
                 request.setAttribute("error", "Invalid username or password.");
+                url = "login.jsp";
             }
         } catch (Exception e) {
             e.printStackTrace();
             request.setAttribute("error", "An error occurred during login.");
+            url = "login.jsp";
         } finally {
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+            if(!url.equals("")){
+                request.getRequestDispatcher(url).forward(request, response);
+            }
         }
     }
 

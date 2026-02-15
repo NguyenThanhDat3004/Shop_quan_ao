@@ -8,6 +8,22 @@
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>com.mycompany.shop_ao_quan.controller.RegisterServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HomeServlet</servlet-name>
+        <servlet-class>com.mycompany.shop_ao_quan.controller.HomeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ImageServlet</servlet-name>
+        <servlet-class>com.mycompany.shop_ao_quan.controller.ImageServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminCommand</servlet-name>
+        <servlet-class>com.mycompany.shop_ao_quan.controller.AdminCommand</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddProductServlet</servlet-name>
+        <servlet-class>com.mycompany.shop_ao_quan.controller.AddProductServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -15,6 +31,22 @@
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/RegisterServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeServlet</servlet-name>
+        <url-pattern>/HomeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ImageServlet</servlet-name>
+        <url-pattern>/ImageServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminCommand</servlet-name>
+        <url-pattern>/AdminCommand</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddProductServlet</servlet-name>
+        <url-pattern>/AddProductServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

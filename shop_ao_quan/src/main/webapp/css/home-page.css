@@ -1,0 +1,138 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : Feb 16, 2026, 2:15:47 AM
+    Author     : nguye
+*/
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f6fa;
+    color: #333;
+}
+
+/* HEADER */
+header {
+    background: #111;
+    color: white;
+    padding: 15px 30px;
+}
+
+header h1 {
+    margin-bottom: 8px;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+nav a:hover {
+    color: #fff;
+}
+
+/* CATEGORY */
+.category {
+    width: 90%;
+    margin: 30px auto;
+}
+
+.category h3 {
+    margin-bottom: 15px;
+}
+
+/* SLIDER */
+.slider {
+    display: flex;
+    align-items: center;
+}
+
+/* viewport giữ đúng 5 sản phẩm */
+.viewport {
+    width: 1100px;
+    overflow: hidden;
+}
+
+/* container trượt */
+.product-container {
+    display: flex;
+    transition: transform 0.4s ease;
+}
+
+/* CARD SẢN PHẨM */
+.product {
+    width: 200px;
+    margin: 10px;
+    border-radius: 10px;
+    background: white;
+    border: 1px solid #e0e0e0;
+    text-align: center;
+    padding: 12px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.product img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.product p {
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.product span {
+    color: #e74c3c;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* NAV ARROWS */
+.nav {
+    font-size: 28px;
+    background: white;
+    border: none;
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: 0.2s;
+}
+
+.nav:hover {
+    background: #111;
+    color: white;
+}
+
+/* FOOTER */
+footer {
+    background: #111;
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+footer h3 {
+    color: white;
+    margin-bottom: 10px;
+}

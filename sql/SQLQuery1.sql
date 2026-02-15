@@ -91,3 +91,7 @@ CREATE TABLE invoice (
         REFERENCES orders(order_id)
 );
 GO
+
+ALTER TABLE product
+ADD image_url NVARCHAR(500);
+GO
