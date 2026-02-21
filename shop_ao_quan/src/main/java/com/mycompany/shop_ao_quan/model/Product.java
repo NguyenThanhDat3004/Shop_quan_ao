@@ -13,6 +13,11 @@ public class Product {
         this.category = category;
         this.imageUrl = image;
     }
+    public Product( String name, String category, String image) {
+        this.name = name;
+        this.category = category;
+        this.imageUrl = image;
+    }
 
     public int getProductId() {
         return productId;

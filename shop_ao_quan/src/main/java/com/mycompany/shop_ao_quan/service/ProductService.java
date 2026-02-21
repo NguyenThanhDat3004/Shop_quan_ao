@@ -14,13 +14,10 @@ public class ProductService {
     // =============================
     // ADD PRODUCT
     // =============================
-    public void addProduct(Product product) throws Exception {
-
+    public boolean addProduct(Product product) throws Exception {
         validateProduct(product);
-
-        product.setName(product.getName().trim());
-
-        productDAO.save(product);
+        if(productDAO.save(product)) return true;
+        else return false;  
     }
 
     // =============================

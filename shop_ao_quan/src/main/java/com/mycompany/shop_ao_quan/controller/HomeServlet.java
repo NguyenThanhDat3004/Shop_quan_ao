@@ -4,6 +4,7 @@
  */
 package com.mycompany.shop_ao_quan.controller;
 
+import com.mycompany.shop_ao_quan.dao.HomeDAO;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -19,6 +20,10 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // chuan bi du lieu
+        HomeDAO dao = new HomeDAO();
+        request.setAttribute("menProducts", dao.getMenProducts());
+        request.setAttribute("womenProducts", dao.getWomenProducts());
         request.getRequestDispatcher("home-page.jsp").forward(request, response);
         
     }

@@ -95,3 +95,121 @@ GO
 ALTER TABLE product
 ADD image_url NVARCHAR(500);
 GO
+-- data mẫu
+INSERT INTO product_size (size_name) VALUES
+(N'XS'),
+(N'S'),
+(N'M'),
+(N'L'),
+(N'XL'),
+(N'XXL'),
+(N'XXXL'),
+(N'28'),
+(N'29'),
+(N'30'),
+(N'31'),
+(N'32'),
+(N'33'),
+(N'34'),
+(N'36'),
+(N'38'),
+(N'40');
+--
+INSERT INTO color (color_name) VALUES
+(N'Đen'),
+(N'Trắng'),
+(N'Xám'),
+(N'Xám đậm'),
+(N'Xanh dương'),
+(N'Xanh navy'),
+(N'Xanh lá'),
+(N'Đỏ'),
+(N'Đỏ đô'),
+(N'Vàng'),
+(N'Nâu'),
+(N'Be'),
+(N'Hồng'),
+(N'Tím'),
+(N'Cam'),
+(N'Kem');
+-- view 
+CREATE VIEW vw_men_fashion AS
+SELECT 
+    p.product_id,
+    p.name,
+    p.category,
+    p.image_url,
+    pv.variant_id,
+    ps.size_name,
+    c.color_name,
+    pv.price,
+    pv.stock
+FROM product p
+JOIN product_variant pv ON p.product_id = pv.product_id
+JOIN product_size ps ON pv.size_id = ps.size_id
+JOIN color c ON pv.color_id = c.color_id
+WHERE p.category = N'Nam';
+GO
+
+CREATE VIEW vw_women_fashion AS
+SELECT 
+    p.product_id,
+    p.name,
+    p.category,
+    p.image_url,
+    pv.variant_id,
+    ps.size_name,
+    c.color_name,
+    pv.price,
+    pv.stock
+FROM product p
+JOIN product_variant pv ON p.product_id = pv.product_id
+JOIN product_size ps ON pv.size_id = ps.size_id
+JOIN color c ON pv.color_id = c.color_id
+WHERE p.category = N'Nữ';
+GO
+
+CREATE VIEW vw_combo_fashion AS
+SELECT 
+    p.product_id,
+    p.name,
+    p.category,
+    p.image_url,
+    pv.variant_id,
+    ps.size_name,
+    c.color_name,
+    pv.price,
+    pv.stock
+FROM product p
+JOIN product_variant pv ON p.product_id = pv.product_id
+JOIN product_size ps ON pv.size_id = ps.size_id
+JOIN color c ON pv.color_id = c.color_id
+WHERE p.category = N'Combo';
+GO
+
+
+DROP VIEW IF EXISTS vw_home_men;
+GO
+CREATE VIEW vw_home_men AS
+SELECT 
+    p.product_id,
+    p.name,
+    p.image_url,
+    MIN(pv.price) AS price,      -- giá thấp nhất
+    SUM(pv.stock) AS stock       -- tổng tồn kho
+FROM product p
+LEFT JOIN product_variant pv ON p.product_id = pv.product_id
+WHERE p.category = N'Nam'
+GROUP BY p.product_id, p.name, p.image_url;
+
+CREATE VIEW vw_home_women AS
+SELECT 
+    p.product_id,
+    p.name,
+    p.image_url,
+    MIN(pv.price) AS price,
+    SUM(pv.stock) AS stock
+FROM product p
+LEFT JOIN product_variant pv ON p.product_id = pv.product_id
+WHERE p.category = N'Nữ'
+GROUP BY p.product_id, p.name, p.image_url;

@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -21,7 +22,21 @@
         <nav>
             <a href="#">Trang chủ</a> |
             <a href="#">Giỏ hàng</a> |
-            <a href="#">Đăng xuất</a>
+            <a href="#">Đăng xuất</a>|
+            <form action="AdminCommand" method="get">
+          <label for="admin-options">Admin Options:</label>
+          <select
+            name="command"
+            id="admin-options"
+            onchange="this.form.submit()"
+          >
+            <option value="" disabled selected>Chọn hành động</option>
+            <option value="delete">Xóa</option>
+            <option value="update">Cập nhật</option>
+            <option value="create">Tạo mới Product</option>
+            <option value="create">Tạo mới Product Variant</option>
+          </select>
+        </form>
         </nav>
         <hr>
     </header>

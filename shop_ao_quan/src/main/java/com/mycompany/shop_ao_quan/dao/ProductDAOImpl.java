@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 public class ProductDAOImpl implements WriteInterface<Product> {
 
     @Override
-    public void save(Product p) throws Exception {
+    public boolean save(Product p) throws Exception {
         String sql = """
             INSERT INTO product(name, category, image_url)
             VALUES (?, ?, ?)
@@ -21,7 +21,11 @@ public class ProductDAOImpl implements WriteInterface<Product> {
             ps.setString(3, p.getImageUrl());
 
             ps.executeUpdate();
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error saving product: " + e.getMessage());
         }
+        return false;
     }
 
     @Override
